@@ -9,7 +9,7 @@ public class Main {
         while (loop == 'y') {
             System.out.println("\nSelect the Operation:\n");
             System.out.println(
-                    "1- Insert Value At Start\n2- Insert Value At Specific Position\n3- Insert Value At End\n4- Remove Value\n5- Remove Value through Position\n6- Show List\n7- Exit");
+                    "1- Insert Value At Start\n2- Insert Value At Specific Position\n3- Insert Value At End\n4- Remove Value\n5- Remove Beginning\n6- Remove Value through Position\n7- Show List\n8- Check Empty\n9- Exit");
             System.out.print("\nPerform Operation: ");
             int choice = input.nextInt();
             switch (choice) {
@@ -31,20 +31,27 @@ public class Main {
                     list.insertEnd(value);
                     break;
                 case 4:
+                    list.removeStart();
+                    ;
+                    break;
+                case 5:
                     System.out.print("Enter Value: ");
                     value = input.nextInt();
                     list.removeByValue(value);
                     break;
-                case 5:
+                case 6:
                     System.out.print("Enter Position: ");
                     position = input.nextInt();
                     list.removeByPosition(position);
                     break;
-                case 6:
+                case 7:
                     System.out.print("Linked List:\n");
                     list.show();
                     break;
-                case 7:
+                case 8:
+                    System.out.print(list.isEmpty());
+                    break;
+                case 9:
                     loop = 'n';
                     break;
                 default:
