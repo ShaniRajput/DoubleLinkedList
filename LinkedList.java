@@ -1,8 +1,15 @@
 public class LinkedList {
     Node head;
 
-    void insertStart(int value) {
+    boolean isEmpty() {
         if (head == null) {
+            return true;
+        }
+        return false;
+    }
+
+    void insertStart(int value) {
+        if (isEmpty()) {
             head = new Node(value);
         } else {
             Node temp = new Node(value);
@@ -13,7 +20,7 @@ public class LinkedList {
     }
 
     void insertByPosition(int value, int position) {
-        if (head == null) {
+        if (isEmpty()) {
             head = new Node(value);
         } else {
             Node temp = head;
@@ -35,7 +42,7 @@ public class LinkedList {
     }
 
     void insertEnd(int value) {
-        if (head == null) {
+        if (isEmpty()) {
             head = new Node(value);
         } else {
             Node temp = head;
@@ -45,6 +52,15 @@ public class LinkedList {
             Node new_node = new Node(value);
             temp.next = new_node;
             new_node.pre = temp;
+        }
+    }
+
+    void removeStart() {
+        if (isEmpty()) {
+            return;
+        } else {
+            head = head.next;
+            head.pre = null;
         }
     }
 
